@@ -30,7 +30,7 @@ public class ProcessadorTest {
 		fatura = new Fatura(LocalDate.now(), 1500, "Gustavo", "NAO_PAGA");
 		
 		ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
-		ArrayList<Pagamento> pagamentosRealizados = processador.realizarPagamento(boletos);
+		ArrayList<Pagamento> pagamentosRealizados = processador.realizarPagamento(boletos, fatura);
 		
 		pagamentos.add(new Pagamento(500,LocalDate.now(), "BOLETO"));
 		pagamentos.add(new Pagamento(400,LocalDate.now(), "BOLETO"));
@@ -51,12 +51,12 @@ public class ProcessadorTest {
 		fatura = new Fatura(LocalDate.now(), 2000, "Gustavo", "NAO_PAGA");
 		
 		ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
-		ArrayList<Pagamento> pagamentosRealizados = processador.realizarPagamento(boletos);
+		ArrayList<Pagamento> pagamentosRealizados = processador.realizarPagamento(boletos,fatura);
 		
 		pagamentos.add(new Pagamento(400,LocalDate.now(), "BOLETO"));
 		pagamentos.add(new Pagamento(500,LocalDate.now(), "BOLETO"));
 
-		Assertions.assertAll(() -> assertEquals(pagamentos, processador.realizarPagamento(boletos, fatura)),
+		Assertions.assertAll(() -> assertEquals(pagamentos, pagamentosRealizados),
 				()-> assertEquals(fatura.getStatus(), "NAO_PAGA")
 				);
 	}
