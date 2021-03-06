@@ -25,8 +25,8 @@ public class BoletoTest {
 	@Test
 	@DisplayName("Teste getValorPago")
 	void testGetvalorPago() {
-		inicializa(LocalDate.now(), 1000, 0;
-		Assertions.assertEquals(1000, boleto.getvalorPago());
+		inicializa(LocalDate.now(), 1000, 0);
+		Assertions.assertEquals(1000, boleto.getValorPago());
 	}
 	
 	@Test
